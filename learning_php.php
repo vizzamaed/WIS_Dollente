@@ -60,8 +60,27 @@
         #String
         $name= "Guacamole";
         $breed= "shih tzu";
-        $message="My dog , $name , is a $breed!\n";
+        $message="My dog , $name , is a $breed!<br>";
         print($message);
+
+
+        #PHP Function Parameters
+        function multiply($int_price){
+            $int_price=$int_price*100;
+            return $int_price;
+        }
+
+        $retval = multiply (3.142344);
+        print"Your total price of purchase :Php $retval <br>";
+
+        #PHP Global Variables
+        $round_off_price =$retval;
+        function addit(){
+        GLOBAL $round_off_price;
+        $round_off_price--;
+        print "Official payment is $round_off_price<br>";
+        }
+        addit();
 
     ?>
     
