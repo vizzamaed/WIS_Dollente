@@ -111,7 +111,34 @@
         }
 
         $retvalue=mul(15);
-        print"<br>Return Value is $retvalue\n";
+        print"<br>Return Value is $retvalue<br>";
+
+    //PHP Constants
+    define ("MINSIZE", 25);
+    echo MINSIZE;
+    echo constant("MINSIZE");
+    print"<br>"; 
+
+    //PHP Operator Types
+    $a=60;
+    $b=80;
+
+    $c=$a+$b;
+    echo "Addition Operation Result: $c <br/>";
+    $c=$a-$b;
+    echo "Subtraction Operation Result: $c <br/>";
+    $c=$a*$b;
+    echo "Multiplication Operation Result: $c <br/>";
+    $c=$a/$b;
+    echo "Division Operation Result: $c <br/>";
+    $c=$a%$b;
+    echo "Modulus Operation Result: $c <br/>";
+    $c=$a++;
+    echo "Increment Operation Result: $c <br/>";
+    $c=$a--;
+    echo "Decrement Operation Result: $c <br/>";
+    print "Done with Learning PHP Lessons!<br>";
+
 
 
     ?>
