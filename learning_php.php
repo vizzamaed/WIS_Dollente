@@ -82,6 +82,38 @@
         }
         addit();
 
+        #PHP Local Variables
+        $num=5;
+        function assignx ()
+            {
+            $num=10;
+            print "$num is local variable, inside of function,<br>";
+            }
+            assignx();
+            print "$num is global variable, outside of function.<br>";
+        
+
+        #PHP Static Variables
+        function keep_track(){
+            STATIC $count=4;
+            $count++;
+            print $count;
+            print "";
+        }
+        keep_track();
+        keep_track();
+        keep_track();
+
+        #PHP Function Parameters
+        function mul ($number){
+            $number=$number*15;
+            return $number;
+        }
+
+        $retvalue=mul(15);
+        print"<br>Return Value is $retvalue\n";
+
+
     ?>
     
 </body>
