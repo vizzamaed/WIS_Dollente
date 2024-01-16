@@ -40,4 +40,22 @@ if ($result->num_rows>0){
         echo "0 results";
     }
 
-    ?>
+
+
+
+
+// Update data
+$newUsername = "JohnDoeUpdated";
+$idToUpdate=1;
+
+$sql = "UPDATE users SET username='$newUsername' WHERE id=$idToUpdate";
+
+if ($conn->query($sql)===TRUE){
+    echo "Record updated successfully";
+}else{
+    echo "Error updating record: ".$conn->error;
+}
+
+//Select Updated data
+
+?>
