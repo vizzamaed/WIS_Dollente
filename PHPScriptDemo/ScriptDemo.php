@@ -27,4 +27,16 @@ if($result){
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+$sql = "SELECT * FROM Course";
+$result=$conn->query($sql);
+
+if ($result){
+    //Process the results
+    while ($row=$result->fetch_assoc()){
+        echo "Course ID: " . $row["CourseID"]. " - CourseName: " . $row["CourseName"]."",
+        " - Credits: ". $row["Credits"]. "<br>";
+    }
+}else{
+    echo "Error: ".$sql."<br>".$conn->error;
+}
 ?>
