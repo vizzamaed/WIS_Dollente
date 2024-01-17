@@ -57,5 +57,42 @@ if ($conn->query($sql)===TRUE){
 }
 
 //Select Updated data
+$sql= "SELECT id, username, email FROM users";
+$result=$conn->query($sql);
+
+if ($result->num_rows>0){
+    while($row=$result->fetch_assoc()){
+        echo "<br> ID: ".$row["id"]."- Username: ".$row["username"]."- Email: ".$row["email"]."<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+
+//Delete data
+$idToDelete=1;
+
+$sql="DELETE FROM users WHERE id=$idToDelete";
+
+if ($conn->query($sql)===TRUE){
+    echo "Record deleted successfully";
+}else{
+    echo "Error deleting record: ". $conn->error;
+}
+
+//Select Updated Deleted data
+$sql = "SELECT id, username, email FROM users";
+$result = $conn->query($sql);
+
+if ($result->num_rows>0){
+    while($row=$result->fetch_assoc()){
+        echo "<br> ID: ".$row["id"]."- Username: ".$row["username"]."- Email: ".$row["email"]."<br>";
+    }
+}else{
+    echo "<br> 0 results";
+}
+
+//Close connection
+$conn->close();
 
 ?>
