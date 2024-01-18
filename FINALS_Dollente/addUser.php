@@ -10,34 +10,30 @@
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $StudentID="";
-    $Firstname="";
-    $Lastname="";
-    $DateOfBirth="";
+    $UsersID="";
+    $Username="";
     $Email="";
-    $Phone="";
+    $Password="";
 
     $errorMessage="";
     $successMessage="";
 
     if($_SERVER['REQUEST_METHOD']=='POST'){
-        $StudentID=$_POST["StudentID"];
-        $Firstname=$_POST["Firstname"];
-        $Lastname=$_POST["Lastname"];
-        $DateOfBirth=$_POST["DateOfBirth"];
+        $UsersID=$_POST["UsersID"];
+        $Username=$_POST["Username"];
         $Email=$_POST["Email"];
-        $Phone=$_POST["Phone"];
+        $Password=$_POST["Password"];
         
         
 
         do{
-            if(empty($StudentID)||empty($Firstname)||empty($Lastname)||empty($DateOfBirth)||empty($Email)||empty($Phone)){
+            if(empty($UsersID)||empty($Username)||empty($Email)||empty($Password)){
                 $errorMessage="All the fields are required";
                 break;
             }
            
-            $sql="INSERT INTO Student(StudentID,Firstname,Lastname,DateOfBirth,Email,Phone)".
-            "VALUES ('$StudentID','$Firstname','$Lastname','$DateOfBirth','$Email','$Phone')";
+            $sql="INSERT INTO Users(UsersID,Username,Email,Password)".
+            "VALUES ('$UsersID','$Username','$Email','$Password')";
             $result=$connection->query($sql);
 
             if(!$result){
@@ -45,14 +41,12 @@
                 break;
             }
 
-            $StudentID="";
-            $Firstname="";
-            $Lastname="";
-            $DateOfBirth="";
+            $UsersID="";
+            $Username="";
             $Email="";
-            $Phone="";
+            $Password="";
 
-            $successMessage ="Student added successfully";
+            $successMessage ="User added successfully";
 
             header("location:/WIS_Dollente/FINALS_Dollente/dashboard.php");
             
@@ -70,7 +64,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Student</title>
+    <title>Add User</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -90,7 +84,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="text-center mb-4">New Student Account</h2>
+                        <h2 class="text-center mb-4">New User Account</h2>
                         <?php
                         if(!empty($errorMessage)){
                             echo "
@@ -104,27 +98,15 @@
 
                             <form method="post">
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Student ID</label>
+                                    <label class="col-sm-3 col-form-label">Users ID</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="StudentID" value="<?php echo $StudentID; ?>">  
+                                        <input type="text" class="form-control" name="UsersID" value="<?php echo $UsersID; ?>">  
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">First Name</label>
+                                    <label class="col-sm-3 col-form-label">User Name</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="Firstname" value="<?php echo $Firstname; ?>">  
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Last Name</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="Lastname" value="<?php echo $Lastname; ?>">  
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Birthdate</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="DateOfBirth" value="<?php echo $DateOfBirth; ?>">  
+                                        <input type="text" class="form-control" name="Username" value="<?php echo $Username; ?>">  
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -134,9 +116,9 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-3 col-form-label">Phone</label>
+                                    <label class="col-sm-3 col-form-label">Password</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" name="Phone" value="<?php echo $Phone; ?>">  
+                                        <input type="text" class="form-control" name="Password" value="<?php echo $Password; ?>">  
                                     </div>
                                 </div>
 

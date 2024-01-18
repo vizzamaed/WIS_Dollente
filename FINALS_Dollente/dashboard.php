@@ -94,7 +94,7 @@
    
     <div class="container my-5">
         <h1>Course</h1>
-            <a class="btn btn-primary btn-margin" href="/cit17_dollente.github.io/cit17_dollente.github.io/Finals/create_course.php" role="button">Add Course</a>
+            <a class="btn btn-primary btn-margin" href="/WIS_Dollente/FINALS_Dollente/addCourse.php" role="button">Add Course</a>
             <br>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -132,8 +132,8 @@
                         <td>$row[Credits]</td>
             
                         <td>
-                            <a class='btn btn-primary btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/update_course.php?CourseID=$row[CourseID]'>Edit</a>
-                            <a class='btn btn-danger btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/delete_course.php?CourseID=$row[CourseID]'>Delete</a>
+                            <a class='btn btn-primary btn-sm' href='/WIS_Dollente/FINALS_Dollente/updateCourse.php?CourseID=$row[CourseID]'>Edit</a>
+                            <a class='btn btn-danger btn-sm' href='/WIS_Dollente/FINALS_Dollente/deleteCourse.php?CourseID=$row[CourseID]'>Delete</a>
                         </td>
                     </tr>
                         ";
@@ -147,7 +147,7 @@
     
     <div class="container my-5">
         <h1>Instructor</h1>
-            <a class="btn btn-primary btn-margin" href="/cit17_dollente.github.io/cit17_dollente.github.io/Finals/create_instructor.php" role="button">Add Instructor</a>
+            <a class="btn btn-primary btn-margin" href="/WIS_Dollente/FINALS_Dollente/addInstructor.php" role="button">Add Instructor</a>
             <br>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -189,8 +189,8 @@
                         <td>$row[Phone]</td>
             
                         <td>
-                            <a class='btn btn-primary btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/update_instructor.php?InstructorID=$row[InstructorID]'>Edit</a>
-                            <a class='btn btn-danger btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/delete_instructor.php?InstructorID=$row[InstructorID]'>Delete</a>
+                            <a class='btn btn-primary btn-sm' href='/WIS_Dollente/FINALS_Dollente/updateInstructor.php?InstructorID=$row[InstructorID]'>Edit</a>
+                            <a class='btn btn-danger btn-sm' href='/WIS_Dollente/FINALS_Dollente/deleteInstructor.php?InstructorID=$row[InstructorID]'>Delete</a>
                         </td>
                     </tr>
                         ";
@@ -204,7 +204,7 @@
 
     <div class="container my-5">
         <h1>Users</h1>
-            <a class="btn btn-primary btn-margin" href="/cit17_dollente.github.io/cit17_dollente.github.io/Finals/create_instructor.php" role="button">Add Users</a>
+            <a class="btn btn-primary btn-margin" href="/WIS_Dollente/FINALS_Dollente/addUser.php" role="button">Add Users</a>
             <br>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -212,7 +212,7 @@
                         <th>UsersID</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th>Phone</th>
+                        <th>Password</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -241,11 +241,11 @@
                         <td>$row[UsersID]</td>
                         <td>$row[Username]</td>
                         <td>$row[Email]</td>
-                        <td>$row[Phone]</td>
+                        <td>$row[Password]</td>
             
                         <td>
-                            <a class='btn btn-primary btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/update_instructor.php?InstructorID=$row[InstructorID]'>Edit</a>
-                            <a class='btn btn-danger btn-sm' href='/cit17_dollente.github.io/cit17_dollente.github.io/Finals/delete_instructor.php?InstructorID=$row[InstructorID]'>Delete</a>
+                            <a class='btn btn-primary btn-sm' href='/WIS_Dollente/FINALS_Dollente/updateUser.php?UsersID=$row[UsersID]'>Edit</a>
+                            <a class='btn btn-danger btn-sm' href='/WIS_Dollente/FINALS_Dollente/deleteUser.php?UsersID=$row[UsersID]'>Delete</a>
                         </td>
                     </tr>
                         ";

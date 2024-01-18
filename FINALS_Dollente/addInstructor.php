@@ -10,26 +10,30 @@
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $CourseID = "";
-    $CourseName = "";
-    $Credits = "";
+    $InstructorID = "";
+    $Firstname = "";
+    $Lastname = "";
+    $Email = "";
+    $Phone = "";
 
     $errorMessage = "";
     $successMessage = "";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $CourseID = $_POST["CourseID"];
-        $CourseName = $_POST["CourseName"];
-        $Credits = $_POST["Credits"];
+        $InstructorID = $_POST["InstructorID"];
+        $Firstname = $_POST["Firstname"];
+        $Lastname = $_POST["Lastname"];
+        $Email = $_POST["Email"];
+        $Phone = $_POST["Phone"];
 
         do {
-            if (empty($CourseID) || empty($CourseName) || empty($Credits)) {
+            if (empty($InstructorID) || empty($Firstname) || empty($Lastname) || empty($Email) || empty($Phone)) {
                 $errorMessage = "All the fields are required";
                 break;
             }
 
-            $sql = "INSERT INTO Course(CourseID, CourseName, Credits)" .
-                "VALUES ('$CourseID', '$CourseName', '$Credits')";
+            $sql = "INSERT INTO Instructor(InstructorID, Firstname, Lastname, Email, Phone)" .
+                "VALUES ('$InstructorID', '$Firstname', '$Lastname', '$Email', '$Phone')";
             $result = $connection->query($sql);
 
             if (!$result) {
@@ -37,11 +41,13 @@
                 break;
             }
 
-            $CourseID = "";
-            $CourseName = "";
-            $Credits = "";
+            $InstructorID = "";
+            $Firstname = "";
+            $Lastname = "";
+            $Email = "";
+            $Phone = "";
 
-            $successMessage = "Course added successfully";
+            $successMessage = "Instructor added successfully";
 
             header("location:/WIS_Dollente/FINALS_Dollente/dashboard.php");
             exit;
@@ -56,7 +62,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Course</title>
+    <title>Add Instructor</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <style>
@@ -78,7 +84,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 class="text-center mb-4">Add Course</h2>
+                        <h2 class="text-center mb-4">Add Instructor</h2>
                         <?php
                         if (!empty($errorMessage)) {
                             echo "
@@ -92,16 +98,24 @@
 
                         <form method="post">
                             <div class="mb-3">
-                                <label class="form-label">Course ID</label>
-                                <input type="text" class="form-control" name="CourseID" value="<?php echo $CourseID; ?>">
+                                <label class="form-label">Instructor ID</label>
+                                <input type="text" class="form-control" name="InstructorID" value="<?php echo $InstructorID; ?>">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Course Name</label>
-                                <input type="text" class="form-control" name="CourseName" value="<?php echo $CourseName; ?>">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" name="Firstname" value="<?php echo $Firstname; ?>">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Credits</label>
-                                <input type="text" class="form-control" name="Credits" value="<?php echo $Credits; ?>">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" name="Lastname" value="<?php echo $Lastname; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="text" class="form-control" name="Email" value="<?php echo $Email; ?>">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone</label>
+                                <input type="text" class="form-control" name="Phone" value="<?php echo $Phone; ?>">
                             </div>
 
                             <?php
