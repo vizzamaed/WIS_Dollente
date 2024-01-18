@@ -5,7 +5,7 @@ $password="";
 $dbname="Dollente";
 
 //Create connection
-$conn=new mysqli($servername,$username,$password,$dbname);
+$conn=new mysqli($servername,$username,$password);
 
 //Check connection
 if ($conn->connect_error){
@@ -13,7 +13,7 @@ if ($conn->connect_error){
 }
 
 //Create database
-$sql = "CREATE DATABASE IF NOT EXISTS $dbname ";
+$sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 if ($conn->query($sql)===TRUE){
     echo "Database created successfully <br>";
 }else{
@@ -21,9 +21,10 @@ if ($conn->query($sql)===TRUE){
 }
 
 //Select Database
-$retval=mysqli_select_db($conn, 'Dollente');
+$retval=mysqli_select_db($conn, $dbname);
+
 //Create tables
-$sql= "CREATE TABLE Users(
+$sql= "CREATE TABLE IF NOT EXISTS Users(
     UsersID int Primary Key,
     Username varchar(255),
     Email varchar(255),
